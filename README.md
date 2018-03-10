@@ -1,26 +1,6 @@
-# gatsby-starter-default
-The default Gatsby starter.
+# Idle Clicker Game
 
-For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/).
 
-## Install
+I wrote a basic [react.js](https://reactjs.org/) based idle clicker game with a shop and inventory, and a clicking button. Inspired by games such as [Cookie Clicker](http://orteil.dashnet.org/cookieclicker/) and [Paperclips](http://www.decisionproblem.com/paperclips/). 
 
-Make sure that you have the Gatsby CLI program installed:
-```sh
-npm install --global gatsby-cli
-```
-
-And run from your CLI:
-```sh
-gatsby new gatsby-example-site
-```
-
-Then you can run it by:
-```sh
-cd gatsby-example-site
-npm run develop
-```
-
-## Deploy
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+The project was created as a static SPA using [Gatsby](https://www.gatsbyjs.org/).
