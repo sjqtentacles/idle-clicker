@@ -1,1 +1,1 @@
-.clickButton{padding:20px}.shop{position:fixed;bottom:200px}.inventory{position:fixed;bottom:500px}
+.clickButton{position:relative;padding:20px}.shop{position:relative;margin-top:100px}.inventory{position:relative;margin-top:100px}
