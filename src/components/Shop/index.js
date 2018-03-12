@@ -11,8 +11,13 @@ export default class Shop extends React.Component {
             items: [
                 {
                     "name": "Click Factory",
+                    "cps": 10,
+                    "cost": 50
+                },
+                {
+                    "name": "Click Labor",
                     "cps": 50,
-                    "cost": 30
+                    "cost": 1000
                 }
             ]
         };

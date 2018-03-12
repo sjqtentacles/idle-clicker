@@ -9,16 +9,30 @@ export default class Inventory extends React.Component{
     }
 
     render() {
-        const listItems = this.props.items.map((item) =>
+        const listItems = this.props.items;
+        const listNames = listItems.map((i) => i.name);
+
+        let counts = {};
+        for (var i = 0; i < listNames.length; i++) {
+            counts[listNames[i]] = 1 + (counts[listNames[i]] || 0);
+        }
+
+        let uniqItems = Array.from(
+            new Set(
+                listItems.map((item) => 
+                    JSON.stringify(item)))).map((item) => 
+                        JSON.parse(item));
+
+        const listItemsJSX = uniqItems.map((item) =>
             <li>
-                <ShopItem name={item.name} cps={item.cps} cost={item.cost} />
+                {counts[item.name]}x: <ShopItem name={item.name} cps={item.cps} cost={item.cost} />
             </li>
         );
 
         return (
             <div className="inventory">
                 Inventory
-                <ul>{listItems}</ul>
+                <ul>{listItemsJSX}</ul>
             </div>
         );
     }

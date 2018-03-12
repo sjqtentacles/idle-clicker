@@ -1,4 +1,4 @@
 .inventory {
-    position: fixed;
-    bottom: 500px;
+    position: relative;
+    margin-top: 100px;
 }

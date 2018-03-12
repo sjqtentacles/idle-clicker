@@ -10,18 +10,22 @@ class Game extends React.Component {
         super(props);
         this.state = {
             count: 0,
-            updateSpeed: .1, // update every .2 seconds,
+            updateSpeed: 0.2, // update every .2 seconds,
             items: [
                 {
                     "name": "InitClick",
-                    "cps": 10,
+                    "cps": 1,
                     "cost": 0
                 }
-            ]
+            ],
+            cps: 0
         };
         this.click = this.click.bind(this);
         this.tick = this.tick.bind(this);
+        this.get_cps = this.get_cps.bind(this);
         this.buy = this.buy.bind(this);
+
+        this.state.cps = this.get_cps();
     }
 
     componentDidMount() {
@@ -32,10 +36,14 @@ class Game extends React.Component {
         clearInterval(this.tick);
     }
 
+    get_cps() {
+        let additive = this.state.items.reduce((a, b) => (a.cps || 0) + (b.cps || 0), 0);
+        return additive;
+    }
+
     tick() {
         let currentCount = this.state.count;
-        let additive = this.state.items.reduce((a,b) => (a.cps || 0) + (b.cps || 0), 0);
-        this.setState({count: (currentCount + (this.state.updateSpeed * additive))});
+        this.setState({count: (currentCount + (this.state.updateSpeed * this.state.cps))});
     }
 
     click() {
@@ -48,6 +56,8 @@ class Game extends React.Component {
     buy(item) {
         let currentCount = this.state.count;
         let currentItems = this.state.items;
+        let newItems = currentItems.concat(item);
+        let currentCPS = this.state.cps;
 
         if (currentCount < item.cost){
             return;
@@ -55,14 +65,15 @@ class Game extends React.Component {
 
         this.setState({
             count: currentCount - item.cost,
-            items: currentItems.concat(item)
+            items: newItems,
+            cps: (currentCPS + item.cps)
         });
     }
 
     render() {
         return (
             <div>
-                <Counter count={this.state.count} />
+                <Counter count={this.state.count} cps={this.state.cps}/>
                 <Clicker action={this.click}/>
                 <Inventory items={this.state.items} />
                 <Shop buy={this.buy} />

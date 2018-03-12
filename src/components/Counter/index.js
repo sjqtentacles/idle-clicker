@@ -9,7 +9,8 @@ export default class Counter extends React.Component {
     render() {
         return (
             <div>
-                Clicks: {this.props.count.toFixed(0)}
+                <p>Clicks: {this.props.count.toFixed(0)}</p>
+                <p>CPS: {this.props.cps}</p>
             </div>
         );
     }
