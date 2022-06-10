@@ -15,9 +15,24 @@ export default class Shop extends React.Component {
                     "cost": 50
                 },
                 {
+                    "name": "Click Manager",
+                    "cps": 25,
+                    "cost": 750
+                }
+                {
                     "name": "Click Labor",
                     "cps": 50,
                     "cost": 1000
+                }
+                {
+                    "name": "Clicker Angel",
+                    "cps": 75,
+                    "cost": 1500
+                }
+                {
+                    "name": "Clicker God",
+                    "cps": 750,
+                    "cost": 150000
                 }
             ]
         };
